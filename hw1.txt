@@ -1,0 +1,20 @@
+1.1 a) Was able to use np.load to load in the npy files
+1.1 b) The training.py file loads in a classification network from network.py, sets an optimizer for the loss function and loads the observations and actions.
+
+    The purpose behind dividing the data into batches is memory efficiency. We cant fit the entire dataset into GPU memory at once. Batches allow the data to be loaded a bit at a time.
+    We're also converging faster to a minimum of the loss function using Adam and batches. SGD is already faster and less likely to hit a local minima compared to Gradient descent. Adam likely works similarly with batches.
+    Regularization effect of dividing into batches may help overfitting (Answer provided by GPT-4)
+
+    An epoch is one complete pass through the whole dataset. This means one pass through each of the batches once.
+
+    Lines 43-48 gets the output from the neural network, compares the loss, zeros out all the gradients so that they are not impacted by the previous batches gradients.
+    loss.backward computes the gradient for each of the parameters (weights) with respect to the loss. The optimize.step function updates all the parameters while following the adam rules. total_loss is accumulated for reporting the loss from each epoch. 
+    The batch_in and batch_ground truth is reset before the next batch is loaded for the epoch.
+
+1.1 c) Steer takes a value of -1 for steering left and 1 for steering right. Gas takes a value of 1 and Break takes a value of 1.
+
+1.1 d) Decided to keep the 3 channels for the time being to be able to differentiate between the Road and grass colors.
+
+1.1 e) Hyper parameters being tuned to just mess with the number of channels, adding a convolutional layer, and lowering the learning rate. After observing stagnant training, I've decided that the best way to improve would be to get more data. I dont think the original data was good or diverse enough to begin with. 
+
+1.1 f) Good training data would include equal amounts of all possible kinds of actions and situations. The Data would also include sufficient amounts of actions in every situation. Good data should also include sufficient amounts of imperfect situations to teach the car how to recover. Perfect imitation could lead to overfitting and the robot isnt guaranteed to end up in the same sates as the human.
