@@ -17,4 +17,10 @@
 
 1.1 e) Hyper parameters being tuned to just mess with the number of channels, adding a convolutional layer, and lowering the learning rate. After observing stagnant training, I've decided that the best way to improve would be to get more data. I dont think the original data was good or diverse enough to begin with. 
 
-1.1 f) Good training data would include equal amounts of all possible kinds of actions and situations. The Data would also include sufficient amounts of actions in every situation. Good data should also include sufficient amounts of imperfect situations to teach the car how to recover. Perfect imitation could lead to overfitting and the robot isnt guaranteed to end up in the same sates as the human.
+1.1 f) Good training data would include equal amounts of all possible kinds of actions and situations. The Data would also include sufficient amounts of actions in every situation. Good data should also include sufficient amounts of imperfect situations to teach the car how to recover. Perfect imitation could lead to overfitting and the robot isnt guaranteed to end up in the same states as the human.
+
+1.2 a) Extract sensor values funciton grabs the portion of the image that has the speed, breaking and steering values displayed as they are applied
+    It also has values from the gyroscope.
+    I will note that adding these features only did enough to make sure that the car did not accelerate too fast. I am still seeing an issue of the car just going to the grass and doing donuts
+
+1.2 b) 
